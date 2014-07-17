@@ -1,0 +1,26 @@
+# number of jobs in parallel
+cores: 1
+project_name: "test_miRNA"
+project_dir: "/path/to/your/project_dir"
+output_dir: "results/miRanalyzer/subdir"
+data_dir: "data"
+
+# settings for cutadapter
+adapter: "AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC"
+
+input_files: "*.fastq"
+fastqc_threads: 4
+
+# settings for miRanalyzer
+# genome for bowtie
+bowtie_index: "your_genome_for_bowtie"
+java_Xmx: "-Xmx5000m"
+miRanalyzer_path: "/path/to/miRanalyzer.jar"
+miRanalyzer_db_path: "/path/to/miRanalyzer_db"
+miRanalyzer_speciesShort: "mmu"
+miRanalyzer_bowtiePath: "/path/to/bowtie"
+miRanalyzer_translibs: ["translibs=mmu_RefGenes:RefGenes:5:10", "translibs=mmu_Rfam:RFam:5:10", "translibs=mmu_piRNA_ncbi:piRNA:5:10", "translibs=mmu_rRNA:rRNA:5:10", "translibs=mmu_tRNA:tRNA:5:10"]
+
+# settings to summarize the results
+stats_tags: ["mature_miRNA", "hairpin_loop_miRNA", "piRNA", "rRNA", "tRNA", "RefGenes", "RFam"]
+stats_files: ["mature_unique.txt", "hairpin_unique.txt", "forw_piRNA_unique.txt", "forw_rRNA_unique.txt", "forw_tRNA_unique.txt", "forw_RefGenes_unique.txt", "forw_RFam_unique.txt"]
